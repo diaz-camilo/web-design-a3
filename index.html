@@ -16,6 +16,47 @@
 
   <title>Ivy Mae | photography</title>
   <link rel="icon" href="assets/favicon/icons8-shutter-lineal-96.png" type="image/x-icon">
+
+  <!-- carousel -->
+  <script src="https://unpkg.com/@glidejs/glide"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide/dist/css/glide.core.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide/dist/css/glide.theme.min.css">
+
+  <!-- <ul class="glide__slides">
+            <li class="glide__slide"><img src="assets/editorial-on-water.jpeg" alt=""></li> -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      new Glide('.glide', {
+        type: 'carousel',
+        startAt: 0,
+        perView: 3,
+        focusAt: 'center',
+        // autoplay: 3000,
+        hoverpause: true,
+        gap: 20,
+        breakpoints: {
+          800: {
+            perView: 1
+          },
+          480: {
+            perView: 1
+          }
+        }
+      }).mount()
+
+      document.querySelectorAll(".glide__slide").forEach((slide) =>
+        slide.addEventListener("click", () => {
+          document.querySelector("#blanket-control").checked = true;
+          document.querySelector(".blanket").style.backgroundImage = `url(${slide.querySelector("img").src})`;
+        })
+      );
+
+      document.querySelector("#close-blanket").addEventListener("click", () => {
+        document.querySelector("#blanket-control").checked = false;
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -44,6 +85,11 @@
 
   </header>
 
+  <input type="checkbox" checked="true" id="blanket-control">
+  <div class="blanket">
+    <span id="close-blanket"><span>&times;</span></span>
+  </div>
+
   <main>
     <section class="gallery-section">
       <h2>gallery</h2>
@@ -60,10 +106,12 @@
           <div class="image">
             <img src="assets/product-watch.jpeg" alt="">
           </div>
-          <div class="image">
+          <div class="image header header-left">
+            <span id="header-text-pro">pro</span>
             <img src="assets/product-creams.jpeg" alt="">
           </div>
-          <div class="image">
+          <div class="image header header-right">
+            <span id="header-text-duct">duct</span>
             <img src="assets/product-ring.jpeg" alt="">
           </div>
         </div>
@@ -78,13 +126,15 @@
           <div class="image">
             <img src="assets/editorial-wedding-dress.jpeg" alt="">
           </div>
-          <div class="image span-2-rows">
-            <img src="assets/fashion-cafe-pink-dress.jpeg" alt="">
-          </div>
-          <div class="image">
+          <div class="image span-2-rows header header-right">
+            <span id="header-text-torial">torial</span>
             <img src="assets/portrait-dog.jpeg" alt="">
           </div>
           <div class="image">
+            <img src="assets/fashion-cafe-pink-dress.jpeg" alt="">
+          </div>
+          <div class="image header header-left">
+            <span id="header-text-edi">edi</span>
             <img src="assets/editorial-on-water.jpeg" alt="">
           </div>
         </div>
@@ -102,10 +152,12 @@
           <div class="image header-left">
             <img src="assets/portrait-black-sweater.jpeg" alt="">
           </div>
-          <div class="image">
+          <div class="image header header-left">
+            <span id="header-text-por">por</span>
             <img src="assets/portrait-thick-brows-long-hair.jpeg" alt="">
           </div>
-          <div class="image">
+          <div class="image  header header-right">
+            <span id="header-text-trait">trait</span>
             <img src="assets/portrait-pink-sweater.jpeg" alt="">
           </div>
         </div>
@@ -113,6 +165,44 @@
 
 
 
+    </section>
+
+    <section>
+      <h2>gallery</h2>
+      <div id="glide" class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <li class="glide__slide"><img src="/assets/editorial-on-water.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/editorial-under-water.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/editorial-urban-pink-dress.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/editorial-wedding-dress.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/family-on-beach-2.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/family-on-beach.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/family-outdors.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/fashion-cafe-pink-dress.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/fashion-socks.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/fashion-urban-on-street-white-and-red.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/ivy-mae.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/portrait-black-sweater.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/portrait-black-top.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/portrait-dog.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/portrait-pink-sweater.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/portrait-thick-brows-long-hair.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/portrait-white-t-shirt.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/product-beauty-products.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/product-creams.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/product-earings.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/product-hand-and-lotions.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/product-red-earings.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/product-ring.jpeg"></li>
+            <li class="glide__slide"><img src="/assets/product-watch.jpeg"></li>
+          </ul>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+        </div>
+      </div>
     </section>
 
 
