@@ -17,17 +17,15 @@
   <title>Ivy Mae | photography</title>
   <link rel="icon" href="assets/favicon/icons8-shutter-lineal-96.png" type="image/x-icon">
 
-  <!-- carousel -->
+  <!-- carousel - https://glidejs.com/ -->
   <script src="https://unpkg.com/@glidejs/glide"></script>
   <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide/dist/css/glide.core.min.css">
   <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide/dist/css/glide.theme.min.css">
 
-  <!-- <ul class="glide__slides">
-            <li class="glide__slide"><img src="assets/editorial-on-water.jpeg" alt=""></li> -->
-
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      new Glide('.glide', {
+      // Attach the glide carousel to the element with the id "glide"
+      new Glide('#glide', {
         type: 'carousel',
         startAt: 0,
         perView: 3,
@@ -45,6 +43,8 @@
         }
       }).mount()
 
+      // select all elements with the class "glide__slide" and adds a click event listener to each of them 
+      // to open the blanket and display the image in full screen
       document.querySelectorAll(".glide__slide").forEach((slide) =>
         slide.addEventListener("click", () => {
           document.querySelector("#blanket-control").checked = true;
@@ -52,6 +52,7 @@
         })
       );
 
+      // add a click event listener to the close button to close the blanket
       document.querySelector("#close-blanket").addEventListener("click", () => {
         document.querySelector("#blanket-control").checked = false;
       });
@@ -79,20 +80,26 @@
       </h1>
       <div class="square"></div>
     </div>
-
     <img src="./assets/ivy-mae.jpeg"
       alt="Ivy Mae's portrait, a young white woman with freckles and read hair in a top bun">
-
   </header>
 
+
+  <!--
+    The checkbox is used to control the visibility of the blanket.
+    When the checkbox is checked, the blanket is visible.
+    When the checkbox is unchecked, the blanket is hidden.
+    The blanket element is used to display an image from the carousel in full screen.
+    It also has a close button that when clicked, unchecks the checkbox and hides the blanket.
+  -->
   <input type="checkbox" id="blanket-control">
   <div class="blanket">
     <span id="close-blanket"><span>&times;</span></span>
   </div>
 
   <main>
-    <section class="gallery-section">
-      <h2>gallery</h2>
+    <section class="portfolio-section">
+      <h2>Portfolio</h2>
 
       <article class="product-article">
         <h3>Product</h3>
@@ -163,58 +170,145 @@
         </div>
       </article>
 
-
-
+      <article class="fashion-article">
+        <h3>Fashion</h3>
+        <div class="image-grid-right-panel">
+          <div class="image">
+            <img src="assets/editorial-urban-pink-dress.jpeg" alt="">
+          </div>
+          <div class="image">
+            <img src="assets/family-on-beach.jpeg" alt="">
+          </div>
+          <div class="image span-2-rows header header-right">
+            <span id="header-text-duct">hion</span>
+            <img src="assets/fashion-urban-on-street-white-and-red.jpeg" alt="">
+          </div>
+          <div class="image">
+            <img src="assets/family-outdors.jpeg" alt="">
+          </div>
+          <div class="image header header-left">
+            <span id="header-text-pro">fas</span>
+            <img src="assets/fashion-socks.jpeg" alt="">
+          </div>
+        </div>
+      </article>
     </section>
 
     <section>
-      <h2>gallery</h2>
-      <div id="glide" class="glide">
-        <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides">
-            <li class="glide__slide"><img src="assets/editorial-on-water.jpeg"></li>
-            <li class="glide__slide"><img src="assets/editorial-under-water.jpeg"></li>
-            <li class="glide__slide"><img src="assets/editorial-urban-pink-dress.jpeg"></li>
-            <li class="glide__slide"><img src="assets/editorial-wedding-dress.jpeg"></li>
-            <li class="glide__slide"><img src="assets/family-on-beach-2.jpeg"></li>
-            <li class="glide__slide"><img src="assets/family-on-beach.jpeg"></li>
-            <li class="glide__slide"><img src="assets/family-outdors.jpeg"></li>
-            <li class="glide__slide"><img src="assets/fashion-cafe-pink-dress.jpeg"></li>
-            <li class="glide__slide"><img src="assets/fashion-socks.jpeg"></li>
-            <li class="glide__slide"><img src="assets/fashion-urban-on-street-white-and-red.jpeg"></li>
-            <li class="glide__slide"><img src="assets/ivy-mae.jpeg"></li>
-            <li class="glide__slide"><img src="assets/portrait-black-sweater.jpeg"></li>
-            <li class="glide__slide"><img src="assets/portrait-black-top.jpeg"></li>
-            <li class="glide__slide"><img src="assets/portrait-dog.jpeg"></li>
-            <li class="glide__slide"><img src="assets/portrait-pink-sweater.jpeg"></li>
-            <li class="glide__slide"><img src="assets/portrait-thick-brows-long-hair.jpeg"></li>
-            <li class="glide__slide"><img src="assets/portrait-white-t-shirt.jpeg"></li>
-            <li class="glide__slide"><img src="assets/product-beauty-products.jpeg"></li>
-            <li class="glide__slide"><img src="assets/product-creams.jpeg"></li>
-            <li class="glide__slide"><img src="assets/product-earings.jpeg"></li>
-            <li class="glide__slide"><img src="assets/product-hand-and-lotions.jpeg"></li>
-            <li class="glide__slide"><img src="assets/product-red-earings.jpeg"></li>
-            <li class="glide__slide"><img src="assets/product-ring.jpeg"></li>
-            <li class="glide__slide"><img src="assets/product-watch.jpeg"></li>
-          </ul>
-        </div>
-        <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+      <div>
+        <h2>gallery</h2>
+        <div id="glide" class="glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide"><img src="assets/editorial-on-water.jpeg"></li>
+              <li class="glide__slide"><img src="assets/editorial-under-water.jpeg"></li>
+              <li class="glide__slide"><img src="assets/editorial-urban-pink-dress.jpeg"></li>
+              <li class="glide__slide"><img src="assets/editorial-wedding-dress.jpeg"></li>
+              <li class="glide__slide"><img src="assets/family-on-beach-2.jpeg"></li>
+              <li class="glide__slide"><img src="assets/family-on-beach.jpeg"></li>
+              <li class="glide__slide"><img src="assets/family-outdors.jpeg"></li>
+              <li class="glide__slide"><img src="assets/fashion-cafe-pink-dress.jpeg"></li>
+              <li class="glide__slide"><img src="assets/fashion-socks.jpeg"></li>
+              <li class="glide__slide"><img src="assets/fashion-urban-on-street-white-and-red.jpeg"></li>
+              <li class="glide__slide"><img src="assets/ivy-mae.jpeg"></li>
+              <li class="glide__slide"><img src="assets/portrait-black-sweater.jpeg"></li>
+              <li class="glide__slide"><img src="assets/portrait-black-top.jpeg"></li>
+              <li class="glide__slide"><img src="assets/portrait-dog.jpeg"></li>
+              <li class="glide__slide"><img src="assets/portrait-pink-sweater.jpeg"></li>
+              <li class="glide__slide"><img src="assets/portrait-thick-brows-long-hair.jpeg"></li>
+              <li class="glide__slide"><img src="assets/portrait-white-t-shirt.jpeg"></li>
+              <li class="glide__slide"><img src="assets/product-beauty-products.jpeg"></li>
+              <li class="glide__slide"><img src="assets/product-creams.jpeg"></li>
+              <li class="glide__slide"><img src="assets/product-earings.jpeg"></li>
+              <li class="glide__slide"><img src="assets/product-hand-and-lotions.jpeg"></li>
+              <li class="glide__slide"><img src="assets/product-red-earings.jpeg"></li>
+              <li class="glide__slide"><img src="assets/product-ring.jpeg"></li>
+              <li class="glide__slide"><img src="assets/product-watch.jpeg"></li>
+            </ul>
+          </div>
+          <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide-button glide__arrow--left" data-glide-dir="<">&lt;</button>
+            <button class="glide-button glide__arrow--right" data-glide-dir=">">></button>
+          </div>
         </div>
       </div>
     </section>
 
 
     <section class="about-section">
-      <h2>about</h2>
-      <div></div>
+      <div>
+        <h2>about</h2>
+        <div class="about-container">
+          <div class="about-image">
+            <img src="assets/ivy-mae-2.jpeg" alt="Ivy Mae's portrait, a young ">
+          </div>
+          <div class="about-text">
+            <p>
+              Welcome to Ivy Mae Photography!
+              Meet Ivy Chapel, a fresh talent in the world of photography. Armed with a Bachelor of Arts in Photography
+              and Illustration, Ivy is passionate about translating her skills into captivating visual stories.</p>
+
+            <p>
+              Having already dabbled in freelance projects for friends and family, Ivy is now eager to broaden her
+              horizons and work on more professional endeavors. Her heart lies in the realms of fashion and editorial
+              photography, where she thrives on creating stunning, narrative-driven imagery. Despite her focus on these
+              areas, Ivy also has a keen interest in portraiture, adding a versatile edge to her portfolio.
+            </p>
+
+            <p>
+              Ivy Mae Photography is more than just a business; it's a passion project aimed at bringing creativity and
+              professionalism to every project. Ivy's approach is both approachable and professional, making her the
+              perfect choice for clients looking for a fresh perspective and a personal touch in their visual
+              storytelling.
+            </p>
+            <p>
+              Join Ivy on her journey as she combines her artistic vision with technical skill to capture moments that
+              last a lifetime. Whether you're a fashion enthusiast, a business owner, or someone looking to capture the
+              essence of a moment, Ivy Mae Photography is here to make your vision a reality.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
+
     <section class="contact-section">
-      <h2>contact</h2>
-      <div></div>
+      <div>
+        <h2>contact</h2>
+        <div class="contact-container">
+          <div class="contact-info">
+            <p>
+              Address: <br> 123 Collins Street, Melbourne, VIC Australia
+            </p>
+            <p>
+              Phone: <br> 0496 123 456
+            </p>
+            <p>
+              Email: <br> info@ivy-mae-photo.com
+          </div>
+
+
+          <form class="contact-form" action="">
+            <!-- <div> -->
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <!-- </div> -->
+            <!-- <div> -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <!-- </div> -->
+            <!-- <div> -->
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+            <!-- </div> -->
+            <button type="submit">Send</button>
+          </form>
+
+
+        </div>
     </section>
+
   </main>
+
   <footer>
     <p>&copy; 2024 Ivy Mae Photography. All rights reserved.</p>
   </footer>

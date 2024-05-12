@@ -3,10 +3,14 @@
   --nav-height: 4rem;
   --max-width: 1200px;
   --bg-color: #f5f5f5;
+  --link-hover-color: #bf6341;
+  --link-active-color: #d99f8c;
+  --alt-background-color: #f2edeb;
   box-sizing: border-box;
   background-color: var(--bg-color);
   font-family: 'Josefin Sans';
   color: #243542;
+  --font-color-75: #243542bf;
 }
 
 @font-face {
@@ -26,9 +30,16 @@ h2 {
   margin: 0;
 }
 
-body > *,
+/* body > *,
 main,
 main > * {
+  max-width: var(--max-width);
+  margin: 0 auto;
+} */
+nav,
+header,
+article,
+section > div {
   max-width: var(--max-width);
   margin: 0 auto;
 }
@@ -87,8 +98,14 @@ nav a {
 }
 
 nav a:hover {
-  color: #bf6341;
-  border-bottom: 1.5px solid #bf6341;
+  color: var(--link-hover-color);
+  border-bottom: 1.5px solid var(--link-hover-color);
+  font-weight: 200;
+}
+
+nav a:active {
+  color: var(--link-active-color);
+  border-bottom: 1.5px solid var(--link-active-color);
   font-weight: 200;
 }
 
@@ -97,7 +114,7 @@ header {
   height: calc(100vh - var(--nav-height));
   justify-content: space-between;
   max-width: none;
-  background-color: #f2edeb;
+  background-color: var(--alt-background-color);
 }
 
 header :first-child {
@@ -141,28 +158,38 @@ h1 .photography {
   letter-spacing: 0.7rem;
 }
 
-main {
-  margin-top: 2rem;
-}
+/* START - MAIN */
+
 main h2 {
   text-align: center;
   margin: 2rem 0;
+  padding-top: 2rem;
 }
 
-/*  START - GALLERY SECTION */
-.gallery-section {
+main section {
+  margin-top: 15rem;
+}
+
+main section:nth-child(even) {
+  background-color: var(--alt-background-color);
+}
+/* END - MAIN */
+
+/*  START - PORTFOLIO SECTION */
+
+.portfolio-section {
   display: flex;
   flex-direction: column;
   gap: 5rem;
 }
 
-.gallery-section article {
+.portfolio-section article {
   position: relative;
   border: 0.3rem solid var(--bg-color);
 }
 
 /* hide from ui but keep for accessibility */
-.gallery-section article > h3 {
+.portfolio-section article > h3 {
   position: absolute;
   color: transparent;
 }
@@ -228,8 +255,8 @@ article div.header > span {
 #header-text-trait {
   left: -1.57rem;
 }
+/* END - PORTFOLIO SECTION */
 
-/* END - GALLERY SECTION */
 main img {
   width: 100%;
   height: 100%;
@@ -244,6 +271,7 @@ footer p {
   border-top: 1px solid #0003;
 }
 
+/* START - GALLERY */
 .glide__slides {
   display: flex;
   justify-content: center;
@@ -287,3 +315,120 @@ footer p {
   background-color: #00000080;
   z-index: 1000;
 }
+
+.glide-button {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  color: var(--bg-color);
+  text-transform: uppercase;
+  font-size: 2rem;
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+
+  background-color: var(--font-color-75);
+  border: 0;
+  border-radius: 50%;
+
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 150ms ease, border 300ms ease-in-out;
+
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 1;
+}
+
+.glide-button:hover {
+  opacity: 1;
+  background-color: var(--link-hover-color);
+}
+
+.glide-button:active {
+  opacity: 1;
+  background-color: var(--link-active-color);
+}
+/* END - GALLERY */
+
+/* START - ABOUT */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-text p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+
+  /* overwride user agent default to align with image */
+  margin-block-start: 0;
+  margin-block-end: 2em;
+}
+/* END - ABOUT */
+
+/* START - CONTACT */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.contact-info p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+
+  /* overwride user agent default to align with form */
+  margin-block-start: 0;
+  margin-block-end: 2em;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.contact-form button {
+  background-color: var(--link-hover-color);
+  color: var(--bg-color);
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.contact-form button:hover {
+  background-color: var(--link-active-color);
+}
+
+.contact-form button:active {
+  background-color: var(--link-hover-color);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 15rem;
+}
+/* END - CONTACT */
