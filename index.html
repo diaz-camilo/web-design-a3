@@ -60,13 +60,15 @@
 </head>
 
 <body>
-  <nav>
+  <nav id="home">
+    <label for="menu-toggle" class="menu-icon menu-toggle">&#9776;</label>
+    <input id="menu-toggle" type="checkbox">
     <ul>
-      <li><a href="#">home</a></li>
-      <li><a href="#">portfolio</a></li>
-      <li><a href="#">gallery</a></li>
-      <li><a href="#">contact</a></li>
-      <li><a href="#">about</a></li>
+      <li><a href="#home">home</a></li>
+      <li><a href="#portfolio">portfolio</a></li>
+      <li><a href="#gallery">gallery</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#contact">contact</a></li>
     </ul>
   </nav>
 
@@ -83,7 +85,6 @@
       alt="Ivy Mae's portrait, a young white woman with freckles and read hair in a top bun">
   </header>
 
-
   <!--
     The checkbox is used to control the visibility of the blanket.
     When the checkbox is checked, the blanket is visible.
@@ -97,7 +98,7 @@
   </div>
 
   <main>
-    <section class="portfolio-section">
+    <section id="portfolio" class="portfolio-section">
       <h2>Portfolio</h2>
 
       <article class="product-article">
@@ -161,7 +162,6 @@
             brought our project to life in ways we never imagined. Her ability to capture the essence of our brand and
             tell our story through her lens is truly remarkable. We highly recommend Ivy Mae Photography to anyone
             looking for a unique and memorable visual experience.</p>
-
         </div>
       </article>
 
@@ -193,7 +193,6 @@
             evident from our first meeting to the final delivery of our photos. She has a remarkable ability to
             understand her clients' vision and translate it into stunning visuals. We are thrilled with the results and
             look forward to working with Ivy again in the future.</p>
-
         </div>
       </article>
 
@@ -221,9 +220,9 @@
       </article>
     </section>
 
-    <section>
+    <section id="gallery">
+      <h2>gallery</h2>
       <div>
-        <h2>gallery</h2>
         <div id="glide" class="glide">
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
@@ -261,10 +260,9 @@
       </div>
     </section>
 
-
-    <section class="about-section">
+    <section id="about" class="about-section">
+      <h2>about</h2>
       <div>
-        <h2>about</h2>
         <div class="about-container">
           <div class="about-image">
             <img src="assets/ivy-mae-2.jpeg" alt="Ivy Mae's portrait, a young ">
@@ -298,33 +296,38 @@
       </div>
     </section>
 
-    <section class="contact-section">
-      <div>
-        <h2>contact</h2>
-        <div class="contact-container">
-          <div class="contact-info">
-            <p>Address:<br>123 Collins Street, Melbourne, VIC Australia </p>
-            <p>Phone:<br>0496 123 456 </p>
-            <p>Email:<br>info@ivy-mae-photo.com
-          </div>
-          <form class="contact-form" action="">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send</button>
-          </form>
+    <section id="contact" class="contact-section">
+      <h2>contact</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <p>Address:<br>123 Collins Street, Melbourne, VIC Australia </p>
+          <p>Phone:<br>0496 123 456 </p>
+          <p>Email:<br>info@ivy-mae-photo.com
         </div>
+        <form class="contact-form" action="">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </section>
-
   </main>
 
   <footer>
-    <p>&copy; 2024 Ivy Mae Photography. All rights reserved.</p>
+    <p>&copy; 2024&nbsp;Ivy&nbsp;Mae&nbsp;Photography. All&nbsp;rights&nbsp;reserved.</p>
+    <p class="disclaimer">
+      This website has been created as part of an assignment in an approved course of study for
+      Curtin
+      University and contains copyright material not created by the author. All copyright material used
+      remains copyright of the respective owners and has been used here pursuant to Section 40 of the
+      Copyright Act 1968 (Commonwealth of Australia). No part of this work may be reproduced without
+      consent of the original copyright owners. See code comments for references.
+    </p>
   </footer>
-
 </body>
 
 </html>
