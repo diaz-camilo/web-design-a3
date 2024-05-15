@@ -663,6 +663,24 @@ footer p.disclaimer {
   min-height: 15rem;
 }
 
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 100vw;
+}
+
+.socials a img {
+  width: 3rem;
+  height: 3rem;
+  filter: hue-rotate(190deg);
+  transition: all 0.5s linear;
+}
+
+.socials a:hover img {
+  filter: hue-rotate(190deg) saturate(50) brightness(50%);
+}
+
 @media screen and (max-width: 900px) {
   .contact-container {
     grid-template-columns: 1fr;
