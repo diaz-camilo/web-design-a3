@@ -55,6 +55,13 @@
       document.querySelector("#close-blanket").addEventListener("click", () => {
         document.querySelector("#blanket-control").checked = false;
       });
+
+      // add a click event listener to the links to close the blanket when clicked
+      document.querySelector("nav").querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          setTimeout(() => document.querySelector("#menu-toggle").checked = false, 300);
+        });
+      });
     });
   </script>
 </head>
