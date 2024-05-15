@@ -123,6 +123,12 @@ nav .menu-toggle {
     outline: none;
   }
 
+  nav a,
+  nav a:hover,
+  nav a:active {
+    font-weight: 400;
+  }
+
   /* style the actual clickable label that controls the checkbox (that controls the menu) */
   nav .menu-toggle {
     display: block;
